@@ -17,3 +17,12 @@ Maze.prototype.setStart = (startX, startY) => {
     this.startX = startX;
     this.startY = startY;
 };
+
+Maze.prototype.setEnd = (endX, endY) => {
+    this.endX = endX;
+    this.endY = endY;
+};
+
+Maze.prototype.setOrientation = (startOrientation) => {
+    this.startOrientation = startOrientation;
+};
