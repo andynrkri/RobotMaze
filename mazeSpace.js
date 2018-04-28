@@ -13,16 +13,13 @@ function Maze(width, height) {
     this.endY = null;
 }
 
-Maze.prototype.setStart = (startX, startY) => {
+Maze.prototype.setStart = function (startX, startY, orientation) {
     this.startX = startX;
     this.startY = startY;
+    this.startOrientation = orientation;
 };
 
-Maze.prototype.setEnd = (endX, endY) => {
+Maze.prototype.setEnd = function (endX, endY) {
     this.endX = endX;
     this.endY = endY;
-};
-
-Maze.prototype.setOrientation = (startOrientation) => {
-    this.startOrientation = startOrientation;
 };
