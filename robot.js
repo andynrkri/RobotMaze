@@ -19,14 +19,20 @@ Robot.prototype.turnTo = function (direction) {
 };
 
 Robot.prototype.moveForward = function () {
-    if (this.orientation === "north") {
-        this.y++;
-    } else if (this.orientation === "south") {
-        this.y--;
-    } else if (this.orientation === "east") {
-        this.x++;
-    } else if (this.orientation === "west") {
-        this.x--;
+
+    switch (this.orientation) {
+        case "north":
+            this.y++;
+            break;
+        case "south":
+            this.y--;
+            break;
+        case "east":
+            this.x++;
+            break;
+        case "west":
+            this.x--;
+            break;
     }
 };
 
