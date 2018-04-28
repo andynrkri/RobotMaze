@@ -1,25 +1,9 @@
-"use strict";
-
-function Maze(width, height) {
-    this.width = width;
-    this.height = height;
-
-    this.startX = null;
-    this.startY = null;
-
-    this.startOrientation = null;
-
-    this.endX = null;
-    this.endY = null;
+function MazeSpace(directions) {
+    for (var i = 0; i < directions.length; i++) {
+        this[directions[i]]=false;
+    }
 }
 
-Maze.prototype.setStart = function (startX, startY, orientation) {
-    this.startX = startX;
-    this.startY = startY;
-    this.startOrientation = orientation;
-};
-
-Maze.prototype.setEnd = function (endX, endY) {
-    this.endX = endX;
-    this.endY = endY;
+MazeSpace.prototype.setWall = function (direction) {
+    this[direction] = true;
 };
