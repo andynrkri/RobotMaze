@@ -14,12 +14,41 @@ Robot.prototype.setMaze = function (maze) {
     this.orientation = maze.startOrientation;
 };
 
-Robot.prototype.turnTo = function (direction) {
-    this.orientation = direction;
+Robot.prototype.turnLeft = function () {
+    switch (this.orientation) {
+        case "north":
+            this.orientation = "west";
+            break;
+        case "south":
+            this.orientation = "east";
+            break;
+        case "east":
+            this.orientation = "north";
+            break;
+        case "west":
+            this.orientation = "south";
+            break;
+    }
+};
+
+Robot.prototype.turnRight = function () {
+    switch (this.orientation) {
+        case "north":
+            this.orientation = "east";
+            break;
+        case "south":
+            this.orientation = "west";
+            break;
+        case "east":
+            this.orientation = "south";
+            break;
+        case "west":
+            this.orientation = "north";
+            break;
+    }
 };
 
 Robot.prototype.moveForward = function () {
-
     switch (this.orientation) {
         case "north":
             this.y++;
@@ -35,5 +64,3 @@ Robot.prototype.moveForward = function () {
             break;
     }
 };
-
-
