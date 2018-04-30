@@ -9,8 +9,8 @@ function Robot() {
 
 Robot.prototype.setMaze = function (maze) {
     this.maze = maze;
-    this.x = maze.x;
-    this.y = maze.y;
+    this.x = 1;
+    this.y = 1;
     this.orientation = maze.startOrientation;
 };
 
@@ -49,30 +49,30 @@ Robot.prototype.turnRight = function () {
 };
 
 Robot.prototype.moveForward = function () {
-    if (x > this.maze.x || y > this.maze.y || x < 0 || y < 0) {
+    if (this.x > this.maze.width || this.y > this.maze.height || this.x < 0 || this.y < 0) {
         return false;
     }
     switch (this.orientation) {
         case "north":
-            if (!this.maze.canMove(this.x, ++this.y, this.direction)) {
+            if (!this.maze.canMove(this.x, this.y+1, this.orientation)) {
                 return false;
             }
             this.y++;
             break;
         case "south":
-            if (!this.maze.canMove(this.x, --this.y, this.direction)) {
+            if (!this.maze.canMove(this.x, this.y-1, this.orientation)) {
                 return false;
             }
             this.y--;
             break;
         case "east":
-            if (!this.maze.canMove(++this.x, this.y, this.direction)) {
+            if (!this.maze.canMove(this.x+1, this.y, this.orientation)) {
                 return false;
             }
             this.x++;
             break;
         case "west":
-            if (!this.maze.canMove(--this.x, this.y, this.direction)) {
+            if (!this.maze.canMove(this.x-1, this.y, this.orientation)) {
                 return false;
             }
             this.x--;

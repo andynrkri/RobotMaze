@@ -9,6 +9,9 @@
         m.setStart(1, 1, 'north');
         m.setEnd(7, 1);
         m.setWall(3, 1, 'east');
+        var robot = new Robot();
+        robot.setMaze(m);
+        robot.moveForward();
     </script>
 </head>
 <body>
